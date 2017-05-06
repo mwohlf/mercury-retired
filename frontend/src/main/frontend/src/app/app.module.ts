@@ -5,17 +5,23 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { PersonComponent } from './person.component';
+
 
 @NgModule({
+  // all components  
   declarations: [
-    AppComponent
+    AppComponent,
+    PersonComponent
   ],
+  // routes and modules  
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  // loading on appstart
+  bootstrap: [AppComponent, PersonComponent]
 })
 export class AppModule { }
