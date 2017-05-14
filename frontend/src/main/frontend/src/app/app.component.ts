@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 @Component({
   // the name for the HTML class selector (<my-app></my-app>)
   selector: 'app-root',
-  // link the template   
+  // link the template
   templateUrl: './app.component.html',
   // link the stylesheet
   styleUrls: ['./app.component.css']

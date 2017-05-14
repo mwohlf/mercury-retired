@@ -9,12 +9,12 @@ import { PersonComponent } from './person.component';
 
 
 @NgModule({
-  // all components  
+  // all components
   declarations: [
     AppComponent,
     PersonComponent
   ],
-  // routes and modules  
+  // routes and modules
   imports: [
     BrowserModule,
     FormsModule,
