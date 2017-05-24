@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { PersonService } from './person.service';
 
 @Component({
-    // the name for the HTML class selector (<my-app></my-app>)
+    // the name for the HTML class selector (<person></person>)
     selector: 'person',
     // link the template   
     templateUrl: './person.component.html',
