@@ -7,8 +7,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
 
-import net.wohlfart.entities.Person;
-import net.wohlfart.entities.PersonRepository;
+import net.wohlfart.entities.User;
+import net.wohlfart.entities.CustomUserRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -42,23 +42,25 @@ test using a 'real' DB to validate the DB layout
 @ActiveProfiles(profiles = "dev")
 @OverrideAutoConfiguration(enabled = false)
 @Transactional
-public class PersonRepositoryTests {
+public class UserRepositoryTests {
 
     @Autowired
     @SuppressWarnings("SpringJavaAutowiringInspection")
-	private PersonRepository personRepository;
+	private CustomUserRepository userRepository;
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Test
 	public void testPersonRepository() {
-		Person person = new Person();
-		person.setFirstName("tom");
-		personRepository.save(person);
+		User person = new User();
+		person.setLogin("tom");
+        person.setEmail("unknown");
+		userRepository.save(person);
         entityManager.flush();
         entityManager.clear();
-        Assert.assertNotNull(personRepository.findOne(1L));
+        Assert.assertNotNull(userRepository.findOne(1L));
+
 	}
 
 
@@ -82,6 +84,8 @@ public class PersonRepositoryTests {
                 @Qualifier("dataSource") DataSource dataSource) {
             HashMap<String, Object> props = new HashMap<>();
             props.put("hibernate.hbm2ddl.auto", "create");
+            props.put("hibernate.show_sql", "true");
+
             return builder
                     .dataSource(dataSource)
                     .packages("net.wohlfart")

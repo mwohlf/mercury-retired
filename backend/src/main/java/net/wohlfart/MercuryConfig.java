@@ -34,8 +34,7 @@ public class MercuryConfig {
             @Qualifier("dataSource") DataSource dataSource) {
         return builder
                 .dataSource(dataSource)
-                .jta(true)
-               // .properties()
+                //.jta(true)
                 .packages("net.wohlfart")
                 .persistenceUnit("mercuryPersistenceUnit")
                 .build();

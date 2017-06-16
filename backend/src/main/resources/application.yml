@@ -7,16 +7,15 @@ server:
   contextPath: /mercury
 
 spring:
-  profile:
-    active: local
-
+  main:
+    banner-mode: "off"
+  data:
+    rest:
+      base-path: /mercury/data
     
 ---    
 spring:
   profiles: test
-
-  main:
-    banner-mode: console
 
 datasource:
   mercury:
@@ -31,9 +30,6 @@ datasource:
 ---
 spring:
   profiles: dev,prod
-
-  main:
-    banner-mode: console
 
   jpa:
     properties:
