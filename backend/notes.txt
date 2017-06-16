@@ -1,0 +1,8 @@
+
+
+setup DB:
+--------
+CREATE SCHEMA `mercury` DEFAULT CHARACTER SET utf8 COLLATE utf8_unicode_ci ;
+// GRANT ALL PRIVILEGES ON mercury.* to mercury@'%' IDENTIFIED BY '***';
+GRANT ALL PRIVILEGES ON mercury.* to mercury@'localhost' IDENTIFIED BY '***';
+FLUSH PRIVILEGES
