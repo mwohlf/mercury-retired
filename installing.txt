@@ -1,0 +1,25 @@
+
+see: https://blog.jdriven.com/2016/12/angular2-spring-boot-getting-started/
+     http://websystique.com/spring-boot/spring-boot-angularjs-spring-data-jpa-crud-app-example/
+     http://adrianmejia.com/blog/2016/10/01/Angular-2-Tutorial-Create-a-CRUD-App-with-Angular-CLI-and-TypeScript/
+     http://jasonwatmore.com/post/2016/09/29/angular-2-user-registration-and-login-example-tutorial#auth-guard-ts
+
+...
+
+
+[michael@woodstock ~]$ npm install -g @angular/cli
+
+
+/home/michael/Projects/spring/mercury/frontend/src/main
+[michael@woodstock main]$ ng new --skip-git --directory frontend mercury
+
+
+var: function scoped
+IIFE: Immediately Invoked Function Expression
+
+(function(i) {
+        setTimeout(function() { console.log(i); }, 100 * i);
+    })(i);
+    
+lexical-scoping or block-scoping: let
+
