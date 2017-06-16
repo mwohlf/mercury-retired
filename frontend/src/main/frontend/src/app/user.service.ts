@@ -10,15 +10,6 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 
-
-const userlist = [
-    { login: 'Adam', email: 'Mueller' },
-    { login: 'Berta', email: 'Russel' },
-    { login: 'Charly', email: 'Vai' },
-    { login: 'Dogbert', email: 'Hendrix' },
-    { login: 'Catbert', email: 'Stalone' },
-];
-
 @Injectable()
 export class UserService {
     private _userUrl = '/mercury/data/user'; // URL to web api
@@ -33,23 +24,15 @@ export class UserService {
             .catch(this.handleError);
     }
 
-    add(user) {
-        console.log("<add> " + user.login + " " + user.email);
-        return new Promise(resolve => {
-            userlist.push(user);
-            resolve(userlist);
-        });
-    }
-
-    create(login: string, email: string): Observable<User[]> {
-        console.log("<create> " + login + " " + email);
+    create(user: User): Observable<User> {
+        console.log("<create> " + user.login + " " + user.email);
         // url, data, headers
-        return this.http.post(this._userUrl, new User(0, login, email), this.jwt())
+        return this.http.post(this._userUrl, user, this.jwt())
             .catch(this.handleError);
     }
 
-    delete(id: number) {
-        return this.http.delete(this._userUrl + "/" + id, this.jwt())
+    delete(user: User) {
+        return this.http.delete(user.login, this.jwt())
             .subscribe(response => {
                 alert('deleted: ' + response);
             }, error => {

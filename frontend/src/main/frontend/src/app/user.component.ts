@@ -22,6 +22,8 @@ export class UserComponent implements OnInit {
 
     private newLogin;
 
+    private newEmail = "another email";
+
     constructor(private userService: UserService) { }
 
     ngOnInit() {
@@ -38,8 +40,11 @@ export class UserComponent implements OnInit {
 
     addUser() {
         console.log("<addUser> newLogin: " + this.newLogin);
-        this.userService.create(this.newLogin, "email").subscribe(
-            () => {
+        var user = new User();
+        user.login = this.newLogin;
+        user.email = this.newEmail;    
+        this.userService.create(user).subscribe(
+            result => {
                 this.refreshUsers();
                 this.newLogin = ''; // clear input form value
             });
