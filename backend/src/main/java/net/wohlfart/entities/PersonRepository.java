@@ -1,9 +1,7 @@
-package net.wohlfart;
+package net.wohlfart.entities;
  
-import java.util.List;
- 
+import net.wohlfart.entities.Person;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
  
 @RepositoryRestResource
