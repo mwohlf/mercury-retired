@@ -32,7 +32,7 @@ export class UserService {
     create(user: User) {
         console.log("<create> " + user.login + " " + user.email);
         // url, data, headers
-        this.http.post('/user', user, this.jwt())
+        this.http.post('/mercury/data/user', user, this.jwt())
             .subscribe(data => {
                 alert('ok');
             }, error => {

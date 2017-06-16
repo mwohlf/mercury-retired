@@ -9,9 +9,9 @@ server:
 spring:
   main:
     banner-mode: "off"
-  #data:
-  #  rest:
-  #    base-path: /mercury/data
+  data:
+    rest:
+      base-path: /data
 
 security:
   basic:
