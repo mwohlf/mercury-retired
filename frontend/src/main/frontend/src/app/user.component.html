@@ -2,16 +2,16 @@
 <section class="todoapp">
 
 	<header class="header">
-		<h1>Person List</h1>
+		<h1>User List</h1>
 	</header>
 
 	<!-- This section should be hidden by default and shown when there are todos -->
 	<section class="main">
 		<ul class="todo-list">
-			<li *ngFor="let person of persons">
+			<li *ngFor="let user of users">
 				<span>
-          {{person.firstname}}
-          {{person.lastname}}
+          {{user.login}}
+          {{user.email}}
 				</span>
 			</li>
 		</ul>
@@ -22,9 +22,9 @@
   <!-- add paging and filter -->
 	</footer>
 
-<input placeholder="firstName"
-       [(ngModel)]="newFirstname"
-       (keyup.enter)="addPerson()"
+<input placeholder="login"
+       [(ngModel)]="newLogin"
+       (keyup.enter)="addUser()"
        autofocus>
-       
+
 </section>

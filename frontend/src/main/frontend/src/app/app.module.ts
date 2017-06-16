@@ -5,14 +5,14 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { PersonComponent } from './person.component';
+import { UserComponent } from './user.component';
 
 
 @NgModule({
   // all components
   declarations: [
     AppComponent,
-    PersonComponent
+    UserComponent
   ],
   // routes and modules
   imports: [
@@ -22,6 +22,6 @@ import { PersonComponent } from './person.component';
   ],
   providers: [],
   // loading on appstart
-  bootstrap: [AppComponent, PersonComponent]
+  bootstrap: [AppComponent, UserComponent]
 })
 export class AppModule { }

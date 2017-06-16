@@ -26,8 +26,9 @@ public class User {
     @Column(name = "LOGIN", nullable = false, unique = true, length = 100)
     private String login;
 
-    @Column(name = "PASSWD", nullable = true, length = 100)
-    private String passwd;
+    // TODO: use a hash function here
+    @Column(name = "PASSWD_HASH", nullable = true, length = 255)
+    private String passwdHash;
 
     @Column(name = "EMAIL", nullable = false, length = 150)
     private String email;
@@ -53,12 +54,12 @@ public class User {
         this.login = login;
     }
 
-    public String getPasswd() {
-        return passwd;
+    public String getPasswdHash() {
+        return passwdHash;
     }
 
-    public void setPasswd(String passwd) {
-        this.passwd = passwd;
+    public void setPasswdHash(String passwd) {
+        this.passwdHash = passwdHash;
     }
 
     public Locale getLocale() {

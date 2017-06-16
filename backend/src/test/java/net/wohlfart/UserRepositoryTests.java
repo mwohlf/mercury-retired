@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 import javax.sql.DataSource;
 
 import net.wohlfart.entities.User;
-import net.wohlfart.entities.CustomUserRepository;
+import net.wohlfart.entities.UserRepository;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -46,7 +46,7 @@ public class UserRepositoryTests {
 
     @Autowired
     @SuppressWarnings("SpringJavaAutowiringInspection")
-	private CustomUserRepository userRepository;
+	private UserRepository userRepository;
 
     @PersistenceContext
     private EntityManager entityManager;
