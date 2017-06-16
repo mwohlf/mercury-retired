@@ -9,10 +9,17 @@ server:
 spring:
   main:
     banner-mode: "off"
-  data:
-    rest:
-      base-path: /mercury/data
-    
+  #data:
+  #  rest:
+  #    base-path: /mercury/data
+
+security:
+  basic:
+    enabled: false
+management:
+  security:
+    enabled: false
+
 ---    
 spring:
   profiles: test

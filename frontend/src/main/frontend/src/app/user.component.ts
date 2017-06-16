@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 // component in Angular is basically a controller class with a template
 import { UserService } from './user.service';
+import { User } from './models/user';
 
 @Component({
     // the name for the HTML class selector (<user></user>)
@@ -36,13 +37,15 @@ export class UserComponent implements OnInit {
 
     addUser() {
         console.log("<addUser> login: " + this.newLogin);
-        this.userService.add({
-            login: this.newLogin
-        }).then(() => {
+        this.userService.create(new User(this.newLogin, "email"));
+
+        /*
+        .then(() => {
             this.refreshUsers();
         }).then(() => {
             this.newLogin = ''; // clear input form value
         });
+        */
 
     }
 
