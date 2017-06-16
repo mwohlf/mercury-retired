@@ -30,23 +30,19 @@ export class UserComponent implements OnInit {
 
 
     refreshUsers() {
-        this.userService.get().then(users => {
-            this.users = users;
-        });
+        this.userService.read().subscribe(
+            result => {
+                this.users = result;
+            });
     }
 
     addUser() {
-        console.log("<addUser> login: " + this.newLogin);
-        this.userService.create(new User(this.newLogin, "email"));
-
-        /*
-        .then(() => {
-            this.refreshUsers();
-        }).then(() => {
-            this.newLogin = ''; // clear input form value
-        });
-        */
-
+        console.log("<addUser> newLogin: " + this.newLogin);
+        this.userService.create(this.newLogin, "email").subscribe(
+            () => {
+                this.refreshUsers();
+                this.newLogin = ''; // clear input form value
+            });
     }
 
 }

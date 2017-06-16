@@ -1,5 +1,7 @@
 package net.wohlfart.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.Locale;
 
 import javax.persistence.Column;
@@ -18,6 +20,8 @@ import javax.persistence.UniqueConstraint;
 })
 public class User {
 
+    // RESTful API's should not expose surrogate key ID's because they mean nothing to external systems.
+    // In RESTful architecture the ID is the canonical URL for that resource.
     @Id
     @Column(name = "ID")
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,6 +31,7 @@ public class User {
     private String login;
 
     // TODO: use a hash function here
+    @JsonIgnore
     @Column(name = "PASSWD_HASH", nullable = true, length = 255)
     private String passwdHash;
 
