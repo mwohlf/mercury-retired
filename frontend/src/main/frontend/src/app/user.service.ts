@@ -16,27 +16,24 @@ export class UserService {
 
     constructor(private http: Http) { }
 
-    read(): Promise<User[]> {
+    read(): Observable<User[]> {
         console.log("<read>");
         return this.http.get(this._userUrl, this.jwt())
             .map(response => this.extractData(response))
-            .toPromise()
             .catch(this.handleError);
     }
 
-    create(user: User): Promise<User> {
+    create(user: User): Observable<User> {
         console.log("<create> " + user.login + " " + user.email);
         // url, data, headers
         return this.http.post(this._userUrl, user, this.jwt())
-            .map(response => { return user; })
-            .toPromise()
-            .catch(this.handleError);
+            .map(response => { return user; });
+            //.catch(this.handleError);
     }
 
-    delete(user: User): Promise<User> {
+    delete(user: User): Observable<User> {
         return this.http.delete(user.login, this.jwt())
             .map(response => { return user; })
-            .toPromise()
             .catch(this.handleError);
     }
 

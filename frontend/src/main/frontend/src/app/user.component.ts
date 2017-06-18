@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 
 // component in Angular is basically a controller class with a template
 import { UserService } from './user.service';
+import { AlertService } from './alert.service';
 import { User } from './models/user';
 
 @Component({
@@ -13,7 +14,7 @@ import { User } from './models/user';
     // link the stylesheet
     styleUrls: ['./user.component.css'],
     // services
-    providers: [UserService]
+    providers: [UserService, AlertService]
 })
 
 export class UserComponent implements OnInit {
@@ -24,7 +25,10 @@ export class UserComponent implements OnInit {
 
     private newEmail = "another email";
 
-    constructor(private userService: UserService) { }
+    constructor(
+        private userService: UserService,
+        private alertService: AlertService
+    ) { }
 
     ngOnInit() {
         this.refreshUsers();
@@ -34,7 +38,7 @@ export class UserComponent implements OnInit {
     refreshUsers() {
         this.userService
             .read()
-            .then(
+            .subscribe(
             result => { this.users = result; }
             );
     }
@@ -46,11 +50,15 @@ export class UserComponent implements OnInit {
         user.email = this.newEmail;
         this.userService
             .create(user)
-            .then(
+            .subscribe(
             result => {
                 this.refreshUsers();
                 this.newLogin = ''; // clear input form value
-            });
+            },
+            error => {
+                this.alertService.error(error);
+            }
+            );
     }
 
 }

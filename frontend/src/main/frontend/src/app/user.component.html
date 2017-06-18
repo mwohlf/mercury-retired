@@ -32,4 +32,9 @@
        (keyup.enter)="addUser()"
        autofocus>
 
+  <p><a [routerLink]="['/home']">Logout</a></p>
+
+  <!-- http://collarspace.com/  emits activation and deactivation events-->
+  <router-outlet></router-outlet>
+
 </section>
