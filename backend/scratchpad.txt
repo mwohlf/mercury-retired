@@ -34,3 +34,9 @@ IIFE: Immediately Invoked Function Expression
 lexical-scoping or block-scoping: let
 
 
+
+
+
+node start:
+cd /home/michael/Projects/spring/mercury/frontend/src/main/frontend
+npm start

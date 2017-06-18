@@ -32,18 +32,21 @@ export class UserComponent implements OnInit {
 
 
     refreshUsers() {
-        this.userService.read().subscribe(
-            result => {
-                this.users = result;
-            });
+        this.userService
+            .read()
+            .then(
+            result => { this.users = result; }
+            );
     }
 
     addUser() {
         console.log("<addUser> newLogin: " + this.newLogin);
         var user = new User();
         user.login = this.newLogin;
-        user.email = this.newEmail;    
-        this.userService.create(user).subscribe(
+        user.email = this.newEmail;
+        this.userService
+            .create(user)
+            .then(
             result => {
                 this.refreshUsers();
                 this.newLogin = ''; // clear input form value

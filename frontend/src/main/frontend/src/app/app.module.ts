@@ -5,20 +5,35 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { PageNotFoundComponent } from './page-not-found.component';
 import { UserComponent } from './user.component';
 
+const appRoutes: Routes = [
+  {
+    path: 'users',
+    component: UserComponent,
+    data: { title: 'User List' }
+  },
+  { path: '',
+    redirectTo: '/heroes',
+    pathMatch: 'full'
+  },
+  { path: '**', component: PageNotFoundComponent }
+];
 
 @NgModule({
   // all components
   declarations: [
     AppComponent,
+    PageNotFoundComponent,
     UserComponent
   ],
   // routes and modules
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+  //  RouterModule.forRoot(appRoutes),
   ],
   providers: [],
   // loading on appstart

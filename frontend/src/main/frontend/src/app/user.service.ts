@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Observable';
 
 import { User } from './models/user';
 
-// to import just map operator
+import 'rxjs/add/operator/toPromise'
 import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
@@ -16,29 +16,28 @@ export class UserService {
 
     constructor(private http: Http) { }
 
-    read(): Observable<User[]> {
+    read(): Promise<User[]> {
         console.log("<read>");
         return this.http.get(this._userUrl, this.jwt())
             .map(response => this.extractData(response))
-            //.do(data => console.log(data)) eyeball results in the console
+            .toPromise()
             .catch(this.handleError);
     }
 
-    create(user: User): Observable<User> {
+    create(user: User): Promise<User> {
         console.log("<create> " + user.login + " " + user.email);
         // url, data, headers
         return this.http.post(this._userUrl, user, this.jwt())
+            .map(response => { return user; })
+            .toPromise()
             .catch(this.handleError);
     }
 
-    delete(user: User) {
+    delete(user: User): Promise<User> {
         return this.http.delete(user.login, this.jwt())
-            .subscribe(response => {
-                alert('deleted: ' + response);
-            }, error => {
-                console.log(JSON.stringify(error.json()));
-            });
-        //.map((response: Response) => response.json());
+            .map(response => { return user; })
+            .toPromise()
+            .catch(this.handleError);
     }
 
     // private helper methods
@@ -52,7 +51,7 @@ export class UserService {
         }
     }
 
-    private extractData(response: Response) {
+    private extractData(response: Response): User[] {
         console.log("<extractData> " + response);
         if (response.status < 200 || response.status >= 300) {
             throw new Error('Bad response status: ' + response.status);
