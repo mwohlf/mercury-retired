@@ -11,11 +11,13 @@ import { PageNotFoundComponent } from './page-not-found.component';
 import { UserComponent } from './user/user.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   // all components
   declarations: [
     AppComponent,
+    RegisterComponent,
     LoginComponent,
     HomeComponent,
     UserComponent,
