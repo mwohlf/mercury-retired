@@ -2,11 +2,11 @@
 import { Component, OnInit } from '@angular/core';
 
 // component in Angular is basically a controller class with a template
-import { AlertService } from './alert.service';
+import { AlertService } from '../alert.service';
 
 @Component({
-    // the name for the HTML class selector (<user></user>)
-    selector: 'user',
+    // the name for the HTML class selector (<home></home>)
+    selector: 'home',
     // link the template
     templateUrl: './home.component.html',
     // link the stylesheet
@@ -17,7 +17,7 @@ import { AlertService } from './alert.service';
 
 export class HomeComponent implements OnInit {
 
-    constructor(private userService: AlertService) {
+    constructor(private alertService: AlertService) {
     }
 
     ngOnInit() {

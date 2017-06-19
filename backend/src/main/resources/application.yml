@@ -24,6 +24,13 @@ management:
 spring:
   profiles: test
 
+  jpa:
+    generate-ddl: true
+    properties:
+      show_sql: true
+    hibernate:
+      ddl-auto: create-drop
+
 datasource:
   mercury:
     # url: jdbc:h2:~/test
@@ -39,13 +46,11 @@ spring:
   profiles: dev,prod
 
   jpa:
+    generate-ddl: true
     properties:
       show_sql: true
     hibernate:
-      ddl-auto: create
-      hbm2ddl.method: create
-      show_sql: true
-      format_sql: true
+      ddl-auto: create-drop
 
 datasource:
   mercury:

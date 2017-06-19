@@ -1,7 +1,5 @@
 package net.wohlfart.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import java.util.Locale;
 
 import javax.persistence.Column;
@@ -10,14 +8,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "USER",
-       uniqueConstraints = {
-            @UniqueConstraint(columnNames = "ID", name = "USER_PK_CONSTRAINT"),
-            @UniqueConstraint(columnNames = "LOGIN", name = "USER_LOGIN_CONSTRAINT")
-})
+@Table(name = "USER")
 public class User {
 
     // RESTful API's should not expose surrogate key ID's because they mean nothing to external systems.

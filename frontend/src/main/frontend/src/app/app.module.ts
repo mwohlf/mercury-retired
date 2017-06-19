@@ -5,29 +5,31 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
-import { routing } from './app.routing';
+import { RoutingModule } from './app.routing';
 
 import { PageNotFoundComponent } from './page-not-found.component';
-import { UserComponent } from './user.component';
-import { HomeComponent } from './home.component';
+import { UserComponent } from './user/user.component';
+import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   // all components
   declarations: [
     AppComponent,
-    PageNotFoundComponent,
-    UserComponent,
+    LoginComponent,
     HomeComponent,
+    UserComponent,
+    PageNotFoundComponent,
   ],
   // modules
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing,
+    RoutingModule,
   ],
   providers: [],
   // loading on appstart
-  bootstrap: [AppComponent, UserComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }
