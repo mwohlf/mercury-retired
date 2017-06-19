@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
-import { User } from './models/user';
+import { User } from '../_model/user';
 
 import 'rxjs/add/operator/toPromise'
 import 'rxjs/add/observable/throw';

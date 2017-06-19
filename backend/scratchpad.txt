@@ -42,6 +42,15 @@ cd /home/michael/Projects/spring/mercury/frontend/src/main/frontend
 npm start
 
 
+bootstrap:
+[michael@woodstock frontend]$ npm help config
+[michael@woodstock frontend]$ npm help install
+[michael@woodstock frontend]$ npm install ngx-bootstrap --save
+[michael@woodstock frontend]$ npm update
+
+npm install bootstrap@4.0.0-alpha.6
+npm install --save @ng-bootstrap/ng-bootstrap
+
 
 theming colors:
 

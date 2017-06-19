@@ -2,7 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 
 // component in Angular is basically a controller class with a template
-import { AlertService } from '../alert.service';
+import { AlertService } from '../_service/alert.service';
 
 @Component({
     // the name for the HTML class selector (<home></home>)
