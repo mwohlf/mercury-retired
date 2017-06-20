@@ -1,12 +1,11 @@
-<h1>
-  {{title}}
-</h1>
-
-<p><a [routerLink]="['/home']">Home</a></p>
-<p><a [routerLink]="['/login']">Login</a></p>
-<p><a [routerLink]="['/user']">User</a></p>
-<p><a [routerLink]="['/register']">Register</a></p>
-
-<!-- the routed components end up here, emits activation and deactivation events -->
+<div class="page-header">
+    <h1>{{title}}</h1>
+</div>
+<nav>
+<a class="btn btn-default" role="button" [routerLink]="['/home']">Home</a>
+<a class="btn btn-default" role="button" [routerLink]="['/login']">Login</a>
+<a class="btn btn-default" role="button" [routerLink]="['/user']">User</a>
+<a class="btn btn-default" role="button" [routerLink]="['/register']">Register</a>
+</nav>
 <router-outlet></router-outlet>
 
