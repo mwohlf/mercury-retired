@@ -1,12 +1,33 @@
-.bg-1 {
-    background-color: #1abc9c; /* Green */
-    color: #ffffff;
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  min-height: 100%;
+  position: relative;
 }
-.bg-2 {
-    background-color: #474e5d; /* Dark Blue */
-    color: #ffffff;
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
 }
-.bg-3 {
-    background-color: #ffffff; /* White */
-    color: #555555;
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 60px 15px 0;
+}
+.footer-block { margin: 20px 0; }
+
+#footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
 }
