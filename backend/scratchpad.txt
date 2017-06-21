@@ -16,6 +16,7 @@ see: https://blog.jdriven.com/2016/12/angular2-spring-boot-getting-started/
 
 ...
 
+bootstrap, see: http://www.dotnetcurry.com/angularjs/1366/angular-4-app-typescript-bootstrap
 
 [michael@woodstock ~]$ npm install -g @angular/cli
 
