@@ -11,4 +11,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'welcome...';
+
+
+  search() {
+    console.log("<search> triggered");
+
+  }
 }
