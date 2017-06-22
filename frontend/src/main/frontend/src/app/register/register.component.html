@@ -3,6 +3,8 @@
 </header>
 
 
+<form #userData="ngForm" (ngSubmit)="register(userData.value)">
+
   <div class="control-group">
     <!-- Login -->
     <label class="control-label"  for="username">Login</label>
@@ -45,8 +47,8 @@
   <div class="control-group">
     <!-- Button -->
     <div class="controls">
-      <input class="btn btn-primary" (ng-click)="register()" value="Register">
+      <button type="submit" class="btn btn-primary">Register</button>
     </div>
   </div>
 
-
+</form>

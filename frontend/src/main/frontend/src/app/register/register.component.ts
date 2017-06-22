@@ -34,8 +34,9 @@ export class RegisterComponent implements OnInit {
         this.alertService.success("<ngOnInit> for RegisterComponent");
     }
 
-    register() {
+    register(user) {
         console.log("<register> newLogin: " + this.newLogin);
+        /*
         var user = new User();
         user.login = this.newLogin;
         user.email = this.newEmail;
@@ -49,6 +50,7 @@ export class RegisterComponent implements OnInit {
                 this.alertService.error(error);
             }
             );
+            */
     }
 
 }
