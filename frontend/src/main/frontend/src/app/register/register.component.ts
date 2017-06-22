@@ -19,12 +19,6 @@ import { User } from '../_model/user';
 
 export class RegisterComponent implements OnInit {
 
-    private newLogin;
-
-    private newEmail;
-
-    private newPassword;
-
     constructor(
         private userService: UserService,
         private alertService: AlertService
@@ -34,12 +28,12 @@ export class RegisterComponent implements OnInit {
         this.alertService.success("<ngOnInit> for RegisterComponent");
     }
 
-    register(user) {
-        console.log("<register> newLogin: " + this.newLogin);
-        /*
+    register(formData) {
+        console.log("<register> newLogin: " + formData);
         var user = new User();
-        user.login = this.newLogin;
-        user.email = this.newEmail;
+        user.login = formData.login;
+        user.email = formData.email;
+        user.passwd = formData.password;
         this.userService
             .create(user)
             .subscribe(
@@ -50,7 +44,6 @@ export class RegisterComponent implements OnInit {
                 this.alertService.error(error);
             }
             );
-            */
     }
 
 }

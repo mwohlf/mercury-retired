@@ -2,15 +2,14 @@
   <h3>Register</h3>
 </header>
 
-
-<form #userData="ngForm" (ngSubmit)="register(userData.value)">
+<!-- todo: https://codecraft.tv/courses/angular/forms/model-driven/ -->
+<form #formData="ngForm" (ngSubmit)="register(formData.value)">
 
   <div class="control-group">
     <!-- Login -->
-    <label class="control-label"  for="username">Login</label>
+    <label class="control-label"  for="login">Login</label>
     <div class="controls">
-      <input type="text" id="username" name="username" placeholder="username" class="input-xlarge"
-             [(ngModel)]="newLogin">
+      <input type="text" id="login" name="login" placeholder="username" class="input-large">
       <p class="help-block">Username can contain any letters or numbers, without spaces</p>
     </div>
   </div>
@@ -19,8 +18,7 @@
     <!-- Email -->
     <label class="control-label" for="email">E-mail</label>
     <div class="controls">
-      <input type="text" id="email" name="email" placeholder="mail@host" class="input-xlarge"
-             [(ngModel)]="newEmail">
+      <input type="text" id="email" name="email" placeholder="mail@host" class="input-large">
       <p class="help-block">Please provide your E-mail</p>
     </div>
   </div>
@@ -29,18 +27,8 @@
     <!-- Password-->
     <label class="control-label" for="password">Password</label>
     <div class="controls">
-      <input type="password" id="password" name="password" placeholder="" class="input-xlarge"
-             [(ngModel)]="newPassword">
+      <input type="password" id="password" name="password" placeholder="s3cr37" class="input-large">
       <p class="help-block">Password should be at least 4 characters</p>
-    </div>
-  </div>
-
-  <div class="control-group">
-    <!-- Password confirm -->
-    <label class="control-label"  for="password_confirm">Password (Confirm)</label>
-    <div class="controls">
-      <input type="password" id="password_confirm" name="password_confirm" placeholder="" class="input-xlarge">
-      <p class="help-block">Please confirm password</p>
     </div>
   </div>
 

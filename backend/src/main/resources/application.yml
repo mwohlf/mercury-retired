@@ -22,7 +22,7 @@ management:
 
 ---    
 spring:
-  profiles: test
+  profiles: test,dev
 
   jpa:
     generate-ddl: true
@@ -43,7 +43,7 @@ datasource:
 
 ---
 spring:
-  profiles: dev,prod
+  profiles: prod
 
   jpa:
     generate-ddl: true
