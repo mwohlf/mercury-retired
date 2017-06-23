@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { RoutingModule } from './app.routing';
+import {ReactiveFormsModule} from "@angular/forms";
 
 import { PageNotFoundComponent } from './page-not-found.component';
 import { UserComponent } from './user/user.component';
@@ -28,6 +29,7 @@ import { RegisterComponent } from './register/register.component';
     FormsModule,
     HttpModule,
     RoutingModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   // loading on appstart

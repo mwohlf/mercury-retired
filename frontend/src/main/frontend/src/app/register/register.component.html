@@ -3,13 +3,13 @@
 </header>
 
 <!-- todo: https://codecraft.tv/courses/angular/forms/model-driven/ -->
-<form #formData="ngForm" (ngSubmit)="register(formData.value)">
+<form [formGroup]="form" (ngSubmit)="register()">
 
   <div class="control-group">
     <!-- Login -->
-    <label class="control-label"  for="login">Login</label>
+    <label class="control-label" for="login">Login</label>
     <div class="controls">
-      <input type="text" id="login" name="login" placeholder="username" class="input-large">
+      <input type="text" id="login" formControlName="login" placeholder="username" class="input-large">
       <p class="help-block">Username can contain any letters or numbers, without spaces</p>
     </div>
   </div>
@@ -18,16 +18,16 @@
     <!-- Email -->
     <label class="control-label" for="email">E-mail</label>
     <div class="controls">
-      <input type="text" id="email" name="email" placeholder="mail@host" class="input-large">
+      <input type="text" id="email" formControlName="email" placeholder="mail@host" class="input-large">
       <p class="help-block">Please provide your E-mail</p>
     </div>
   </div>
 
   <div class="control-group">
     <!-- Password-->
-    <label class="control-label" for="password">Password</label>
+    <label class="control-label" for="passwd">Password</label>
     <div class="controls">
-      <input type="password" id="password" name="password" placeholder="s3cr37" class="input-large">
+      <input type="passwd" id="passwd" formControlName="passwd" placeholder="s3cr37" class="input-large">
       <p class="help-block">Password should be at least 4 characters</p>
     </div>
   </div>
@@ -35,7 +35,7 @@
   <div class="control-group">
     <!-- Button -->
     <div class="controls">
-      <button type="submit" class="btn btn-primary">Register</button>
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Register</button>
     </div>
   </div>
 
