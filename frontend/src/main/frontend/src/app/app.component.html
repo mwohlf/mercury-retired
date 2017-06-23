@@ -13,9 +13,10 @@
         <li><a class="nav-link" [routerLink]="['/user']">User</a></li>
         <li><a class="nav-link" [routerLink]="['/register']">Register</a></li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="text" placeholder="Search">
-    </form>
+    <div class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search"
+             name="search" [formControl]="searchControl" (keyup.enter)="search()">
+    </div>
   </div>
 </nav>
 <!-- Begin page content -->

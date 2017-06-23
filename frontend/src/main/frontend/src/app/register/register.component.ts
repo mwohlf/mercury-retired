@@ -1,6 +1,6 @@
 // importing the component class from angular
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 // component in Angular is basically a controller class with a template
 import { UserService } from '../_service/user.service';
@@ -29,9 +29,9 @@ export class RegisterComponent {
         private formBuilder: FormBuilder
     ) {
         this.form = this.formBuilder.group({
-            "login": ["", Validators.required],
-            "email": ["", Validators.required],
-            "passwd": ["", Validators.required]
+            "login": ["", [Validators.required, Validators.pattern("[0-9a-zA-Z]*")]],
+            "email": ["", [Validators.required, Validators.email]],
+            "passwd": ["", [Validators.required, Validators.minLength(4)]]
         });
     }
 
@@ -45,7 +45,7 @@ export class RegisterComponent {
             .create(user)
             .subscribe(
             result => {
-                // registering done
+                this.form.reset();
             },
             error => {
                 this.alertService.error(error);
