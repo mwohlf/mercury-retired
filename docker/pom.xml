@@ -1,0 +1,42 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>net.wohlfart</groupId>
+    <artifactId>docker</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+
+    <name>docker</name>
+    <description>The docker project</description>
+
+    <!-- this pulls the springboot app into the springboot webserver config -->
+    <dependencies>
+        <dependency>
+            <groupId>net.wohlfart</groupId>
+            <artifactId>backend</artifactId>
+            <version>${project.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>io.fabric8</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>0.21.0</version>
+                <configuration>
+                    <images>
+                        <image>
+                            <name>wohlfart.net/mercury:${project.version}</name>
+                            <build>
+                                <dockerFileDir>${project.basedir}</dockerFileDir>
+                            </build>
+                        </image>
+                    </images>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
