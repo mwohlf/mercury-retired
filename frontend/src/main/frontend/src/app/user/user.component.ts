@@ -39,7 +39,7 @@ export class UserComponent implements OnInit {
         this.userService
             .read()
             .subscribe(
-            result => { this.users = result; }
+                result => { this.users = result; }
             );
     }
 
@@ -51,13 +51,13 @@ export class UserComponent implements OnInit {
         this.userService
             .create(user)
             .subscribe(
-            result => {
-                this.refreshUsers();
-                this.newLogin = ''; // clear input form value
-            },
-            error => {
-                this.alertService.error(error);
-            }
+                result => {
+                    this.refreshUsers();
+                    this.newLogin = ''; // clear input form value
+                },
+                error => {
+                    this.alertService.error(error);
+                }
             );
     }
 
