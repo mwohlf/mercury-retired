@@ -4,7 +4,7 @@ import { FormControl } from '@angular/forms';
 
 @Component({
   // the name for the HTML class selector (<my-app></my-app>)
-  selector: 'app-root',
+  selector: 'app-component',
   // link the template
   templateUrl: './app.component.html',
   // link the stylesheet

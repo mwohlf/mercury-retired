@@ -1,5 +1,5 @@
 // importing the component class from angular
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 // component in Angular is basically a controller class with a template

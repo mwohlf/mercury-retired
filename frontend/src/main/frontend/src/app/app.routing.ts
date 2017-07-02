@@ -8,6 +8,7 @@ import { RegisterComponent } from './register/register.component';
 const appRoutes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'login', component: LoginComponent },
+    { path: 'login/facebook', component: LoginComponent },
     { path: 'user', component: UserComponent },
     { path: 'register', component: RegisterComponent },
 

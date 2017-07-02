@@ -2,6 +2,37 @@
   <h3>Login</h3>
 </header>
 
-<p>You're logged in with Angular 2!!</p>
-  <h3>All registered users:</h3>
+<div class="container" ng-show="!home.authenticated">
+  <div>
+    With Facebook: <a href="/mercury/login/facebook">click here</a>
+  </div>
+</div>
 
+<form [formGroup]="form" (ngSubmit)="login()">
+
+  <div class="control-group">
+    <!-- Login -->
+    <label class="control-label" for="login">Login</label>
+    <div class="controls">
+      <input type="text" id="login" formControlName="login" placeholder="username" class="input-large">
+      <p class="help-block">Username can contain any letters or numbers, without spaces</p>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <!-- Email -->
+    <label class="control-label" for="passwd">Password</label>
+    <div class="controls">
+      <input type="text" id="passwd" formControlName="passwd" placeholder="password" class="input-large">
+      <p class="help-block">Please provide your Password</p>
+    </div>
+  </div>
+
+  <div class="control-group">
+    <!-- Button -->
+    <div class="controls">
+      <button type="submit" class="btn btn-primary" [disabled]="!form.valid">Login</button>
+    </div>
+  </div>
+
+</form>
