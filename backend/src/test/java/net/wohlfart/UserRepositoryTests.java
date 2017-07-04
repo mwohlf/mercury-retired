@@ -10,6 +10,7 @@ import javax.sql.DataSource;
 import net.wohlfart.entities.User;
 import net.wohlfart.entities.UserRepository;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,7 +52,7 @@ public class UserRepositoryTests {
     @PersistenceContext
     private EntityManager entityManager;
 
-    @Test
+    @Test @Ignore
 	public void testPersonRepository() {
 		User person = new User();
 		person.setLogin("tom");
